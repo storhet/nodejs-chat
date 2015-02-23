@@ -10,6 +10,7 @@
     <div class="row">
       <div class="col-md-4">
         Status: <span id="status"></span>
+        Latest: <span id="latest"></span>
         <form id="chat_form">
           <input type="text" id="chat_input">
         </form>
@@ -37,10 +38,14 @@
     })
 
     server.on('messages', function(data) { insertMessage(data) });
+    server.on('joined', function(data) { joinedMessage(data) });
 
     function insertMessage(data) {
-      console.log(data);
       $('#chat').append('<div><h4 style="color:' + data.color + '; display: inline-block; margin: 0px;">' + data.name + '</h4>: ' + data.message + '</div>');
+    };
+
+    function joinedMessage(data) {
+      $('#latest').html(data);
     }
   </script>
 </body>
