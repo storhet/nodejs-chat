@@ -10,8 +10,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
+  "main": "app.js",
   "repository": {
     "type": "git",
     "url": "ssh://54eba2ce5973caf5c300003f@nodejschat-storhet.rhcloud.com/~/git/nodejschat.git/"
