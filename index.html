@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>node js practice</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        Status: <span id="status"></span>
+        <form id="chat_form">
+          <input type="text" id="chat_input">
+        </form>
+      </div>
+      <div id="chat" class="col-md-4 center-block" style="float: none;"></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+  <script src="http://192.168.1.38:8080/socket.io/socket.io.js"></script>
+  <script>
+  	var server = io.connect('http://192.168.1.38:8080/');
+    server.on('connect', function(data) {
+      $('#status').html('Connected to the chatroom');
+      nickname = prompt('Nickname ?');
+      server.emit('join', nickname);
+    })
+
+  	$('#chat_form').submit(function(e) {
+  		var message = $('#chat_input').val();
+      $('#chat_input').val('');
+      server.emit('messages', message);
+
+      return false;
+  	})
+
+    server.on('messages', function(data) { insertMessage(data) });
+
+    function insertMessage(data) {
+      console.log(data);
+      $('#chat').append('<div><h4 style="color:' + data.color + '; display: inline-block; margin: 0px;">' + data.name + '</h4>: ' + data.message + '</div>');
+    }
+  </script>
+</body>
+</html>
