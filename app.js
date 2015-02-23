@@ -4,8 +4,8 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var colors = ['red', 'green', 'blue', 'yellow', 'orange'];
 
-var ipaddr  = process.env.OPENSHIFT_INTERNAL_IP || "127.0.0.1";
-var port    = process.env.OPENSHIFT_INTERNAL_PORT || 8080;
+var ipaddr = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
 io.on('connection', function(client) {
   client.on('join', function(name) {
