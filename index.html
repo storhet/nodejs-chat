@@ -9,8 +9,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        Status: <span id="status"></span>
-        Latest: <span id="latest"></span>
+        Status: <span id="status"></span><br>
+        <span id="latest"></span>
         <form id="chat_form">
           <input type="text" id="chat_input">
         </form>
@@ -45,7 +45,7 @@
     };
 
     function joinedMessage(data) {
-      $('#latest').html(data);
+      $('#latest').html('Latest: ' + data);
     }
   </script>
 </body>

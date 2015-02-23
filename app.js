@@ -12,6 +12,7 @@ io.on('connection', function(client) {
     console.log(name + ' joined the chat!');
     client.nickname = name;
     client.color = colors[Math.floor((Math.random() * 5))];
+
     client.broadcast.emit('joined', name + ' joined to the chat!');
   });
 
