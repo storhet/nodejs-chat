@@ -1,0 +1,24 @@
+1) FE Remove prompt with nickname
+2) FE Add modal window with login options:
+  - as user with privileges
+  - as anonymous with random name
+3) BE Handle login:
+  - add array with [{username: '...', password: '...'}] for granted users
+  - add random name generator for anonymous users
+4) BE/FE Handle logout/disconnect
+
+--------------------------------------------------------------------------
+
+5) BE Add user roles as user|admin
+
+//admin
+6) BE Add ability to kick/mute user
+7) FE Add kick/mute user flash notifications
+
+
+
+
+--------------------------------------------------------------------------
+
+--) Add integration with PostgreSQL
+--) Possible adding of emoticons
